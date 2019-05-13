@@ -1,14 +1,21 @@
 import React from 'react';
-import './App.css';
+import 'typeface-roboto';
+import Header from './header'
+import Footer from './footer'
+import Main from './main'
 
 class App extends React.Component {
     render() {
         return (
-            <div className="App">
+            <React.Fragment>
+                <meta
+                    name="viewport"
+                    content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
+                />
                 <Header/>
                 <Main/>
                 <Footer/>
-            </div>
+            </React.Fragment>
         )
     }
 }
