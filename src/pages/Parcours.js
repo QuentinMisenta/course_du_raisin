@@ -1,16 +1,16 @@
 import React from 'react'
-import {Typography} from "@material-ui/core";
+import {Typography} from "@material-ui/core/index";
 
-class Resultats extends React.Component {
+class Parcours extends React.Component {
     render() {
         return (
             <div>
                 <Typography variant='h1'>
-                    Résultats
+                    Parcours
                 </Typography>
             </div>
         )
     }
 }
 
-export default Resultats
+export default Parcours

@@ -8,6 +8,14 @@ import ListItem from '@material-ui/core/ListItem/index';
 import ListItemText from '@material-ui/core/ListItemText/index';
 import {ListItemIcon} from "@material-ui/core/index";
 import {Assignment, Home, InsertDriveFile, Person, Place} from '@material-ui/icons/index'
+import Link from 'react-router-dom/Link';
+
+const style = {
+    header: {
+        width: 250,
+        backgroundColor: '#9500ae',
+    }
+};
 
 class Menu extends React.Component {
 
@@ -15,41 +23,37 @@ class Menu extends React.Component {
         this.props.drawerOpening(open)
     }
 
-    handleClick(page) {
-        this.props.printPage(page)
-    }
-
     render() {
         const list = (
             <List component='nav'>
-                <ListItem button key='accueil' onClick={(e) => this.handleClick('Home')}>
+                <ListItem button key='accueil' component={Link} to='/'>
                     <ListItemIcon><Home/></ListItemIcon>
-                    <ListItemText primaryTypographyProps={{FontWeight: 'FontWeightMedium'}} primary='Accueil'/>
+                    <ListItemText primaryTypographyProps={{fontWeight: 'FontWeightMedium'}} primary='Accueil'/>
                 </ListItem>
-                <ListItem button component='nav' onClick={(e) => this.handleClick('Subscriptions')}>
+                <ListItem button component={Link} to='/inscriptions'>
                     <ListItemIcon><Assignment/></ListItemIcon>
                     <ListItemText primary='Inscriptions'/>
                 </ListItem>
-                <ListItem button component='nav' onClick={(e) => this.handleClick('Parcours')}>
+                <ListItem button component={Link} to='/parcours'>
                     <ListItemIcon><Place/></ListItemIcon>
                     <ListItemText primary='Parcours' fontWeight='fontWeightMedium'/>
                 </ListItem>
-                <ListItem button component='nav' onClick={(e) => this.handleClick('Résultats')}>
+                <ListItem button component={Link} to='resultats'>
                     <ListItemIcon><InsertDriveFile/></ListItemIcon>
                     <ListItemText primary='Résultats'/>
                 </ListItem>
-                <ListItem button component='nav' onClick={(e) => this.handleClick('À propos')}>
+                <ListItem button component={Link} to='/a-propos'>
                     <ListItemIcon><Person/></ListItemIcon>
                     <ListItemText primary='À propos'/>
                 </ListItem>
             </List>);
 
         return (
-            <React.Fragment>
+            <div>
                 <SwipeableDrawer onOpen={(e) => this.handleDrawer(true)} anchor='left'
                                  onClose={(e) => this.handleDrawer(false)} open={this.props.open}>
 
-                    <div style={{width: 250}}>
+                    <div style={style.header}>
                         <IconButton onClick={(e) => this.handleDrawer(false)}>
                             <ChevronLeftIcon/>
                         </IconButton>
@@ -58,7 +62,7 @@ class Menu extends React.Component {
                     {list}
                 </SwipeableDrawer>
 
-            </React.Fragment>
+            </div>
 
         )
     }
