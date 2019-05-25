@@ -9,15 +9,19 @@ import Subscriptions from "../pages/Subscriptions";
 import Resultats from "../pages/Resultats";
 import Apropos from "../pages/APropos";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
-import green from "@material-ui/core/colors/green";
-import purple from "@material-ui/core/colors/purple";
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import '../CSS/App.css'
+import Hidden from "@material-ui/core/Hidden";
+import DesktopHeader from './DesktopHeader'
 
 const theme = createMuiTheme({
     palette: {
-        primary: green,
-        secondary: purple,
+        primary: {
+            main: '#6327cd',
+        },
+        secondary: {
+            main: '#cd8976',
+        },
     },
 });
 
@@ -28,7 +32,13 @@ class App extends React.Component {
         return (
             <MuiThemeProvider theme={theme}>
                 <Router>
-                    <Header/>
+                    <Hidden lgUp>
+                        <Header/>
+                    </Hidden>
+                    <Hidden mdDown>
+                        <DesktopHeader/>
+                    </Hidden>
+
                     <Switch>
                         <Route exact path='/' component={Home}/>
                         <Route exact path='/parcours' component={Parcours}/>

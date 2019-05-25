@@ -8,12 +8,12 @@ import ListItem from '@material-ui/core/ListItem/index';
 import ListItemText from '@material-ui/core/ListItemText/index';
 import {ListItemIcon} from "@material-ui/core/index";
 import {Assignment, Home, InsertDriveFile, Person, Place} from '@material-ui/icons/index'
-import Link from 'react-router-dom/Link';
+import {Link} from 'react-router-dom';
 
 const style = {
     header: {
         width: 250,
-        backgroundColor: '#9500ae',
+        backgroundColor: '#cd2790',
     }
 };
 
